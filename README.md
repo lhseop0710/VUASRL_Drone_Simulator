@@ -58,7 +58,7 @@ git clone https://github.com/F-LAB-Systems/PX4-Python-SITL-2021.git
 
 In new Terminal open PX4-Autopilot & Gazebo
 ```
-cd~
+cd ~
 
 cd PX4-Autopilot
 
@@ -69,7 +69,7 @@ make px4_sitl gazebo //QuadCopter
 
 In new terminal open QGroundControl
 ```
-cd~
+cd ~
 
 cd Documents //If AppImage is in documents
 
