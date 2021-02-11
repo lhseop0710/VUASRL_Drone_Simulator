@@ -3,9 +3,7 @@
 This Documentation will guide you to program a drone runnning PX4 firmaware using the Python mavsdk module, with the added option of 3d smulation using Gazebo11
 
 Before following this Steps install <a href="https://github.com/F-LAB-Systems/SITL_2021">PX4-Autipilot<a> > for <a href="https://www.youtube.com/watch?v=AAv2zVYgxIY&feature=youtu.be">Video tutorial</a> 
-  
-https://user-images.githubusercontent.com/78522341/106847388-cc341f80-66d4-11eb-9966-00c068135fcc.png
- 
+![F-lab](https://user-images.githubusercontent.com/78522341/107611958-27cd5280-6c6b-11eb-8043-d7fbf9e733a0.png
 ## STEP 1 INSTALL PYCHARM
 
 You can download the .tar file from the official website <a href="https://www.jetbrains.com/pycharm/download/#section=linux">Pycharm</a>
