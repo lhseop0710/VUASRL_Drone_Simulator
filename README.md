@@ -17,6 +17,9 @@ cd ~/Downloads
 
 tar -xzf pycharm-community-2020.1.1.tar.gz
 
+```
+```
+
 cd pycharm-community-2020.1.1
 
 cd bin
