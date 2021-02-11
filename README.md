@@ -6,6 +6,7 @@ Before following this Steps install <a href="https://github.com/F-LAB-Systems/SI
   
 ![F-lab](https://user-images.githubusercontent.com/78522341/107612078-724ecf00-6c6b-11eb-9fca-7db484a7f586.png)
 
+ <a href="https://youtu.be/r5GEO2Zvs54">VIDEO TUTORIAL</a>
 
 ## STEP 1 INSTALL PYCHARM
 
