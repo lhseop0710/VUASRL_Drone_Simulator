@@ -16,12 +16,12 @@ Follow the following steps to extract and run Pycharm
 
 cd ~/Downloads
 
-tar -xzf pycharm-community-2020.1.1.tar.gz
+tar -xzf pycharm-community-2020.3.3.tar.gz //NOTE: Folder name will change according to the current version
 
 ```
 ```
 
-cd pycharm-community-2020.1.1
+cd pycharm-community-2020.3.3 //NOTE: Folder name will change according to the current version
 
 cd bin
 
@@ -32,10 +32,45 @@ sh pycharm.sh
 ```
 Installation window will open, complete it and move to the next step
 
-## STEP 2 Create a new Project
+## OR
 
-We will do a simple take off and land using the python !
+If you have Pycharm already installed
 
-``
-git clone 
-``
+```
+cd pycharm-community-2020.3.3 //NOTE: Folder name will change according to the current version
+
+cd bin
+
+./pycharm.sh
+```
+
+## STEP 2: Create a new Project
+
+We will do a simple take off and land using python !
+Start by cloning this repository in your project folder using pycharm terminal
+
+```
+git clone https://github.com/F-LAB-Systems/PX4-Python-SITL-2021.git
+```
+
+## STEP 3: Open PX4-Autopilot & Gazebo
+
+In new Terminal open PX4-Autopilot & Gazebo
+```
+cd~
+
+cd PX4-Autopilot
+
+make px4_sitl gazebo //QuadCopter
+```
+
+## STEP 4: Open QGroundControl
+
+In new terminal open QGroundControl
+```
+cd~
+
+cd Documents //If AppImage is in documents
+
+./QGroundControl.AppImage
+```
