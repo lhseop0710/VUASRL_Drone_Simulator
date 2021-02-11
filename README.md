@@ -4,6 +4,7 @@ This Documentation will guide you to program a drone runnning PX4 firmaware usin
 
 Before following this Steps install <a href="https://github.com/F-LAB-Systems/SITL_2021">PX4-Autipilot installation<a> for <a href="https://www.youtube.com/watch?v=AAv2zVYgxIY&feature=youtu.be">Video tutorial</a> 
   
+https://user-images.githubusercontent.com/78522341/106847388-cc341f80-66d4-11eb-9966-00c068135fcc.png
  
 ## STEP 1 INSTALL PYCHARM
 
