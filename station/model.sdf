@@ -4,7 +4,7 @@
     <static>true</static>
     <link name='link_0'>
       <inertial>
-        <mass>1500</mass>
+        <mass>1</mass>
         <inertia>
           <ixx>0.166667</ixx>
           <ixy>0</ixy>
@@ -14,7 +14,7 @@
           <izz>0.166667</izz>
         </inertia>
       </inertial>
-      <pose>-3.2e-05 -1e-06 4.2e-05 0 -0 1.5559</pose>
+      <pose>3.7e-05 -4.9e-05 0 0 -0 0</pose>
       <visual name='visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -26,7 +26,7 @@
         <material>
           <lighting>1</lighting>
           <script>
-            <uri>/home/leejeonghun/model_editor_models/station/scripts/train.jpg</uri>
+            <uri>/home/leejeonghun/model_editor_models/station/scripts/station.jpg</uri>
           </script>
           <shader type='pixel'/>
         </material>
