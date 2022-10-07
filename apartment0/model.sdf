@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='apartment'>
+  <model name='apartment0'>
     <static>true</static>
     <link name='link_0'>
       <inertial>
@@ -19,14 +19,14 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/leejeonghun/model_editor_models/apartment/scripts/apartment.dae</uri>
-            <scale>0.4 0.4 0.5</scale>
+            <uri>model://apartment0/scripts/apartment.dae</uri>
+            <scale>0.3 0.3 0.3</scale>
           </mesh>
         </geometry>
         <material>
           <lighting>1</lighting>
           <script>
-            <uri>/home/leejeonghun/model_editor_models/apartment/scripts/building.jpg</uri>
+            <uri>model://apartment0/scripts/building.jpg</uri>
           </script>
           <shader type='pixel'/>
         </material>
@@ -39,8 +39,8 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/leejeonghun/model_editor_models/apartment/scripts/apartment.dae</uri>
-            <scale>0.4 0.4 0.5</scale>
+            <uri>model://apartment0/scripts/apartment.dae</uri>
+            <scale>0.3 0.3 0.3</scale>
           </mesh>
         </geometry>
         <surface>

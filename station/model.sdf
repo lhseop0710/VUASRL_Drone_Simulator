@@ -19,14 +19,14 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/leejeonghun/model_editor_models/station/scripts/station.dae</uri>
+            <uri>model://station/scripts/station.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
         <material>
           <lighting>1</lighting>
           <script>
-            <uri>/home/leejeonghun/model_editor_models/station/scripts/station.jpg</uri>
+            <uri>model://station/scripts/station.jpg</uri>
           </script>
           <shader type='pixel'/>
         </material>
@@ -39,7 +39,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/leejeonghun/model_editor_models/station/scripts/station.dae</uri>
+            <uri>model://station/scripts/station.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
