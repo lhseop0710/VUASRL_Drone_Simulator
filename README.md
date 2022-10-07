@@ -1,6 +1,5 @@
-# ground plane with google earth
+# VUASRL_Drone_Simulator
 2022_Pablo_Air_Challenge
 
 #Description
-maintainer: leejeonghun
-modeling: leejeonghun
+Development of Drone Control Simulator Using Open Source
