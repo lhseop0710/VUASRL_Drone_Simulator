@@ -8,7 +8,7 @@ Development of Drone Control Simulator Using Open Source
 - simulation world: vuasrl.world
 
 #main models
-- cheongju international airport
-- osong train station
-- vertiport
+- cheongju international airport(airport)
+- osong train station(station)
+- vertiport(vertiport)
 
