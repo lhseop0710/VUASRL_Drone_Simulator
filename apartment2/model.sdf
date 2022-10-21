@@ -20,7 +20,7 @@
         <geometry>
           <mesh>
             <uri>model://apartment1/scripts/apartment1.dae</uri>
-            <scale>0.5 0.2 0.33</scale>
+            <scale>0.35 0.14 0.22</scale>
           </mesh>
         </geometry>
         <material>
@@ -40,7 +40,7 @@
         <geometry>
           <mesh>
             <uri>model://apartment1/scripts/apartment1.dae</uri>
-            <scale>0.5 0.2 0.33</scale>
+            <scale>0.35 0.14 0.22</scale>
           </mesh>
         </geometry>
         <surface>
