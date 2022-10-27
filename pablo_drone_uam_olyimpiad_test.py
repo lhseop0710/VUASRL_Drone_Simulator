@@ -83,6 +83,9 @@ class run():
         async for body in drone.telemetry.attitude_angular_velocity_body():
             print(f"body info: {body}")
 
+    async def speed_set(self, speed):
+        await drone.action.set_current_speed(float(speed))
+
 
     async def takeoff(self, altitude):
         await drone.action.set_takeoff_altitude(float(altitude))
@@ -238,30 +241,32 @@ class WindowClass(QMainWindow, form_main):
         lat = self.label_lat.text()
         lon = self.label_lon.text()
         alt = self.label_altitude.text()
-        print(lat, lon , alt)
+        speed = self.label_speed.text()
+        print(lat, lon , alt, speed)
 
         self.loop.run_until_complete(run().takeoff(float(alt)))
         self.loop.run_until_complete(run().goto_location(float(lat), float(lon), float(alt)))
-
+        self.loop.run_until_complete(run().speed_set(float(speed)))
     def set_landing_site_text(self):
         lat = self.textEdit_lat.toPlainText()
         lon = self.textEdit_lon.toPlainText()
         altitude = self.textEdit_altitude.toPlainText()
-
+        speed = self.textEdit_speed.toPlainText()
         self.label_lat.setText(str(lat))
         self.label_lon.setText(str(lon))
         self.label_altitude.setText(str(altitude))
+        self.label_speed.setText(str(speed))
 
     def set_landing_site_list(self):
         item = self.listWidget.currentItem()
         value = self.listWidget.currentRow()
         if value == 0 :
-            self.label_lat.setText("47.3967339")
-            self.label_lon.setText("8.539988")
+            self.label_lat.setText("47.3961599")
+            self.label_lon.setText("8.5402997")
             self.label_altitude.setText("50")
         elif value == 1 :
-            self.label_lat.setText("47.3996387")
-            self.label_lon.setText("8.5505912")
+            self.label_lat.setText("47.397183399999996")
+            self.label_lon.setText("8.552031999999999")
             self.label_altitude.setText("50")
         else:
             print("choice")

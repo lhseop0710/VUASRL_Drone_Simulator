@@ -5,6 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
 from mavsdk.mission import (MissionItem, MissionPlan)
+# from  pablo_drone_uam_olyimpiad_test import WindowClass
 from math import *
 import re
 
@@ -47,8 +48,8 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
 
         mission_items.append(MissionItem(float(lat_zero) - (float(lon_mapy) * float(xy[1])),
                                          float(lon_zer0) + float(lat_mapx) * float(xy[0]),
-                                         70,
-                                         10,
+                                         60,
+                                         30,
                                          True,
                                          float('nan'),
                                          float('nan'),
