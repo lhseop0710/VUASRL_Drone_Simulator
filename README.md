@@ -93,4 +93,6 @@ cd Documents //If AppImage is in documents
 ## Runfile "main_pablo_drone_uam_olyimpiad.py"
 ![VUASRL-contrubute](https://user-images.githubusercontent.com/79184520/198586120-d00d3c81-62c4-42d8-8734-2cb608d6461c.png)
 ![Screenshot from 2022-10-28 00-08-34](https://user-images.githubusercontent.com/79184520/198645241-d80c1787-fe3a-4a61-88fd-e842d4d3f240.png)
+![Screenshot from 2022-10-28 17-19-58](https://user-images.githubusercontent.com/79184520/198645996-a3e9edf4-55b9-4bcf-8391-23b7ff894cc5.png)
+
 
