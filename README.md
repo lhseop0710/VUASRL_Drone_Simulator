@@ -69,6 +69,9 @@ cd PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models
 cd
 cd PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds
 #import our vuasrl world files
+``` 
+ ![image](https://user-images.githubusercontent.com/79184520/198585343-33be60ca-4583-4cc1-a604-03ce9b43e45f.png)
+```
 
 export PX4_SITL_WORLD=vuasrl
 
@@ -87,3 +90,6 @@ cd Documents //If AppImage is in documents
 
 ./QGroundControl.AppImage
 ```
+## Runfile "main_pablo_drone_uam_olyimpiad.py"
+![VUASRL-contrubute](https://user-images.githubusercontent.com/79184520/198586120-d00d3c81-62c4-42d8-8734-2cb608d6461c.png)
+
