@@ -19,7 +19,7 @@ from qfi import qfi_ADI, qfi_ALT, qfi_SI, qfi_HSI, qfi_VSI, qfi_TC
 
 i = 0
 
-class run():
+class run():                    #Drone, UAM Start Loop Develop
     manual_inputs = [
         [0, 0, 0.5, 0],  # no movement
         [-1, 0, 0.5, 0],  # minimum roll
@@ -37,10 +37,11 @@ class run():
 
     body = []
 
-    async def run(self):
+    async def run(self):        #start drone, loop
         global drone, position, absolute_altitude
         drone = System()
         await drone.connect(system_address="udp://:14540")  # Connects to the UAV
+                                                            # Drone Status check
 
         print("Establishing Connection...")
         # Check CONNECTION & if there is a positive connection Feedback = CONNECTED
@@ -79,23 +80,23 @@ class run():
         await drone.action.arm()
 
         # await mavsdk.telemetry.AngularVelocityBody
-    async def angular(self):
+    async def angular(self):                            #Droen Angular rate check for Mission Plane
         async for body in drone.telemetry.attitude_angular_velocity_body():
             print(f"body info: {body}")
 
-    async def speed_set(self, speed):
+    async def speed_set(self, speed):                   #Drone Speed set
         await drone.action.set_current_speed(float(speed))
 
 
-    async def takeoff(self, altitude):
+    async def takeoff(self, altitude):                  #Drone takeoff
         await drone.action.set_takeoff_altitude(float(altitude))
         await drone.action.takeoff()
         await asyncio.sleep(10)
 
-    async def land(self):
+    async def land(self):                               #Drone takeoff
         await drone.action.land()
 
-    async def start_position_control(self):
+    async def start_position_control(self):              #Drone position control for xbox360 controller
         print("-- Starting manual control")
         while True:
             if drone.telemetry.armed():
@@ -121,21 +122,21 @@ class run():
                 break
             break
 
-    async def upload_mission(self):
+    async def upload_mission(self):                         #Drone Waypoints Mission Import to Misson Planer
         mission_plane = MissionPlan(second_window_Test.mission_items)
         await drone.mission.upload_mission(mission_plane)
 
-    async def start_mission(self):
+    async def start_mission(self):                          #start Waypoints Flight Loop
         await drone.mission.start_mission()
 
-    async def goto_location(self, lat, lon, altitude):
+    async def goto_location(self, lat, lon, altitude):      #start Point-to-Point Flight Loop
         flying_alt = absolute_altitude + altitude
         await drone.action.set_takeoff_altitude(altitude)
         await drone.action.goto_location(lat, lon, flying_alt, 0)
 
 
 
-form_main = uic.loadUiType("untitled.ui")[0]
+form_main = uic.loadUiType("untitled.ui")[0]                #Grapical User Interface Develope Using QtDesigner
 class WindowClass(QMainWindow, form_main):
     loop = asyncio.get_event_loop()
     back_ground = "pablo.png"
@@ -162,7 +163,7 @@ class WindowClass(QMainWindow, form_main):
 
         # self.label.setPixmap(self.qPixmapFileVar)
         # self.label.resize(self.label.width(), self.label.height())
-        self.btn_trajectory.clicked.connect(self.show_trajectory)
+        self.btn_trajectory.clicked.connect(self.show_trajectory)            #Button_Events_Function_deveop
         self.btn_arm.clicked.connect(self.arm)
         self.btn_takeoff.clicked.connect(self.takeoff)
         self.btn_land.clicked.connect(self.land)
@@ -178,7 +179,7 @@ class WindowClass(QMainWindow, form_main):
 
 
         ##instruments set
-        self.mainLayout = QVBoxLayout()
+        self.mainLayout = QVBoxLayout()                                     #Flight Instrument Develop after this Olyimpiad
         self.mainLayout.addLayout(self.adi_gridLayout, 70)
         self.adi = qfi_ADI.qfi_ADI(self)
         self.adi.resize(300, 300)
@@ -199,45 +200,45 @@ class WindowClass(QMainWindow, form_main):
     #     self.adi.setPitch(float(data[2]))
     #     self.adi.viewUpdate.emit()
 
-    def show_trajectory(self):
+    def show_trajectory(self):                               #Waypoint Mission Painter Show
         self.second = secondwindow()  # 두번째창 생성
         self.second.exec()  # 두번째창 닫을때까지 기다림
             # self.show()  # 두번쨰창 닫으면 다시 메인윈도우
 
 
-    def arm(self):
+    def arm(self):                                             #Start Drone Armming
         # self.timer.start()
         self.loop.run_until_complete(run().run())
         self.gps_info_label.setText(str(run.gps_info_list[0]))
 
 
-    def takeoff(self):
+    def takeoff(self):                                          #Start Drone take-off
         print("Taking Off")
         alt = self.label_altitude.text()
         self.loop.run_until_complete(run().takeoff(float(alt)))
 
-    def land(self):
+    def land(self):                                             #Landing
         print("LANDING")
         self.loop.run_until_complete(run().land())
 
-    def position_control(self):
+    def position_control(self):                                   #start position control using controller
         self.loop.run_until_complete(run().start_position_control())
         print("Position Control")
 
-    def erase_waypoints(self):
+    def erase_waypoints(self):                                   #Waypoint Painter a& Waypoints Mission item reset
         second_window_Test.chosen_points.clear()
         second_window_Test.mission_items.clear()
         print("Reset!!_Waypoint")
 
-    def upload_waypoints(self):
+    def upload_waypoints(self):                                   #Waypoints Mission item upload
         self.loop.run_until_complete(run().upload_mission())
 
-    def start_waypoints(self):
+    def start_waypoints(self):                                     #start Waypoints flight
         print("start_waypoints_mission")
         self.loop.run_until_complete(run().start_mission())
 
 
-    def goto_position(self):
+    def goto_position(self):                                        #start point-to-point flight
         lat = self.label_lat.text()
         lon = self.label_lon.text()
         alt = self.label_altitude.text()
@@ -247,7 +248,7 @@ class WindowClass(QMainWindow, form_main):
         self.loop.run_until_complete(run().takeoff(float(alt)))
         self.loop.run_until_complete(run().goto_location(float(lat), float(lon), float(alt)))
         self.loop.run_until_complete(run().speed_set(float(speed)))
-    def set_landing_site_text(self):
+    def set_landing_site_text(self):                                #set point-to-point flight position
         lat = self.textEdit_lat.toPlainText()
         lon = self.textEdit_lon.toPlainText()
         altitude = self.textEdit_altitude.toPlainText()
@@ -257,7 +258,7 @@ class WindowClass(QMainWindow, form_main):
         self.label_altitude.setText(str(altitude))
         self.label_speed.setText(str(speed))
 
-    def set_landing_site_list(self):
+    def set_landing_site_list(self):                                #set point-to-point flight destination
         item = self.listWidget.currentItem()
         value = self.listWidget.currentRow()
         if value == 0 :
@@ -311,7 +312,7 @@ if __name__ == "__main__":
     # myWindow.show()
     # sys.exit(app.exec_())
     t1 = threading.Thread(target=VCS())
-    t2 = threading.Thread(target=run.angular)
+    t2 = threading.Thread(target=run.angular)           #Multithreading for Flight instrument Sensing
     t1.start()
     t2.start()
 

@@ -12,7 +12,7 @@ import re
 chosen_points = []
 mission_items = []
 
-lat_zero = 47.4006681
+lat_zero = 47.4006681               #set default position
 lon_zer0 = 8.5378115
 lat_mapx = 0.0159811 / 1200
 lon_mapy = 0.0060827 / 675
@@ -90,44 +90,6 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
             print(xy[0], xy[1])
         painter.drawPath(path)
 
-    # def center(self):
-    #     qr = self.frameGeometry()
-    #     cp = QDesktopWidget().availableGeometry().center()
-    #     qr.moveCenter(cp)
-    #     self.move(qr.topLeft())
-
-    # def buildPath(self):
-    #     self.path = QPainterPath()
-    #     self.path.moveTo(points[0])
-    #     factor = .1412
-    #     for p in range(len(points) - 2):
-    #         p2 = points[p + 1]
-    #         target = QtCore.QLineF(p2, points[p + 2])
-    #         reverseTarget = QtCore.QLineF.fromPolar(
-    #             target.length() * factor, target.angle() + 180).translated(p2)
-    #         if not p:
-    #             self.path.quadTo(reverseTarget.p2(), p2)
-    #         else:
-    #             p0 = points[p - 1]
-    #             p1 = points[p]
-    #             source = QtCore.QLineF(p0, p1)
-    #             current = QtCore.QLineF(p1, p2)
-    #             targetAngle = target.angleTo(current)
-    #             if 90 < targetAngle < 270:
-    #                 ratio = abs(sin(radians(targetAngle)))
-    #                 reverseTarget.setLength(reverseTarget.length() * ratio)
-    #             reverseSource = QtCore.QLineF.fromPolar(
-    #                 source.length() * factor, source.angle()).translated(p1)
-    #             sourceAngle = current.angleTo(source)
-    #             if 90 < sourceAngle < 270:
-    #                 ratio = abs(sin(radians(sourceAngle)))
-    #                 reverseSource.setLength(reverseSource.length() * ratio)
-    #             self.path.cubicTo(reverseSource.p2(), reverseTarget.p2(), p2)
-    #
-    #     final = QtCore.QLineF(points[-3], points[-2])
-    #     reverseFinal = QtCore.QLineF.fromPolar(
-    #         final.length() * factor, final.angle()).translated(final.p2())
-    #     self.path.quadTo(reverseFinal.p2(), points[-1])
 
     def close(self):
         self.close()
