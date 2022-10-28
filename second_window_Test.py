@@ -5,9 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
 from mavsdk.mission import (MissionItem, MissionPlan)
-# from  pablo_drone_uam_olyimpiad_test import WindowClass
-from math import *
-import re
+
 
 chosen_points = []
 mission_items = []
@@ -41,7 +39,7 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
         self.setupUi(self)
         self.setWindowTitle("VUASRL Ground Control System")
 
-    def mouseReleaseEvent(self, cursor_event):
+    def mouseReleaseEvent(self, cursor_event):                  #Mission Item Append to Mission List
         global xy
         self.chosen_points.append(cursor_event.pos())
         self.update()
@@ -60,9 +58,9 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
                                          float('nan'),
                                          float('nan')))
 
-        print(mission_items)
+        print(mission_items)                #for check
 
-    def paintEvent(self, event):
+    def paintEvent(self, event):            #Paint Event for Mission Item Visualization
         global points
         global xy
         painter = QPainter(self)
@@ -93,3 +91,30 @@ class secondwindow(QDialog, QWidget, form_secondwindow):
 
     def close(self):
         self.close()
+
+
+
+# class mavsdk.mission.MissionItem(latitude_deg, longitude_deg, relative_altitude_m, speed_m_s, is_fly_through,
+#                                   imbal_pitch_deg, gimbal_yaw_deg, camera_action, loiter_time_s, camera_photo_interval_s, acceptance_radius_m, yaw_deg, camera_photo_distance_m)
+# Bases: object
+#
+# Type representing a mission item.
+#
+# A MissionItem can contain a position and/or actions. Mission items are building blocks to assemble a mission,
+# which can be sent to (or received from) a system. They cannot be used independently.
+#
+    # Parameters:
+        # latitude_deg (double) – Latitude in degrees (range: -90 to +90)
+        # longitude_deg (double) – Longitude in degrees (range: -180 to +180)
+        # relative_altitude_m (float) – Altitude relative to takeoff altitude in metres
+        # speed_m_s (float) – Speed to use after this mission item (in metres/second)
+        # is_fly_through (bool) – True will make the drone fly through without stopping, while false will make the drone stop on the waypoint
+        # gimbal_pitch_deg (float) – Gimbal pitch (in degrees)
+        # gimbal_yaw_deg (float) – Gimbal yaw (in degrees)
+        # camera_action (CameraAction) – Camera action to trigger at this mission item
+        # loiter_time_s (float) – Loiter time (in seconds)
+        # camera_photo_interval_s (double) – Camera photo interval to use after this mission item (in seconds)
+        # acceptance_radius_m (float) – Radius for completing a mission item (in metres)
+        # yaw_deg (float) – Absolute yaw angle (in degrees)
+        # camera_photo_distance_m (float) – Camera photo distance to use after this mission item (in meters)
+

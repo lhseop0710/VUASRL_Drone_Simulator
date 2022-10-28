@@ -8,17 +8,13 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5 import uic
 from PyQt5.QtCore import QTimer
-# import second_window
-# from second_window import secondwind
 import second_window_Test
 from second_window_Test import secondwindow
-from PyQt5 import QtCore
-from qfi import qfi_ADI, qfi_ALT, qfi_SI, qfi_HSI, qfi_VSI, qfi_TC
+from qfi import qfi_ADI, qfi_ALT, qfi_SI, qfi_HSI, qfi_VSI, qfi_TC  #for Flight instruments
 
 
 
-i = 0
-
+i = 0               #for sensing thread
 class run():                    #Drone, UAM Start Loop Develop
     manual_inputs = [
         [0, 0, 0.5, 0],  # no movement
@@ -161,8 +157,6 @@ class WindowClass(QMainWindow, form_main):
         self.move(qtRectangle.topLeft())
         #Drawing_WayPoints_Background_Settings
 
-        # self.label.setPixmap(self.qPixmapFileVar)
-        # self.label.resize(self.label.width(), self.label.height())
         self.btn_trajectory.clicked.connect(self.show_trajectory)            #Button_Events_Function_deveop
         self.btn_arm.clicked.connect(self.arm)
         self.btn_takeoff.clicked.connect(self.takeoff)
@@ -186,12 +180,12 @@ class WindowClass(QMainWindow, form_main):
         self.adi.reinit()
         self.adi_gridLayout.addWidget(self.adi, 0, 0)
 
-        # self.timer=QTimer()
+        # self.timer=QTimer()                                               #for sensing thread
         # self.timer.setInterval(100)
         # self.timer.timeout.connect(self.update1)
         self.show()
 
-    # def update1(self):
+    # def update1(self):                                                    #for sensing thread
     #     global i
     #     self.loop.run_until_complete(run().angular())
     #     self.pitch_value.setText(str(data[1]))
@@ -262,42 +256,15 @@ class WindowClass(QMainWindow, form_main):
         item = self.listWidget.currentItem()
         value = self.listWidget.currentRow()
         if value == 0 :
-            self.label_lat.setText("47.3961599")
+            self.label_lat.setText("47.3961599")                #Osong-station Lat, Lon
             self.label_lon.setText("8.5402997")
             self.label_altitude.setText("50")
         elif value == 1 :
-            self.label_lat.setText("47.397183399999996")
+            self.label_lat.setText("47.397183399999996")        #Cheongju-station Lat, Lon
             self.label_lon.setText("8.552031999999999")
             self.label_altitude.setText("50")
         else:
             print("choice")
-
-
-
-
-# class mavsdk.mission.MissionItem(latitude_deg, longitude_deg, relative_altitude_m, speed_m_s, is_fly_through,
-#                                   imbal_pitch_deg, gimbal_yaw_deg, camera_action, loiter_time_s, camera_photo_interval_s, acceptance_radius_m, yaw_deg, camera_photo_distance_m)
-# Bases: object
-#
-# Type representing a mission item.
-#
-# A MissionItem can contain a position and/or actions. Mission items are building blocks to assemble a mission,
-# which can be sent to (or received from) a system. They cannot be used independently.
-#
-    # Parameters:
-        # latitude_deg (double) – Latitude in degrees (range: -90 to +90)
-        # longitude_deg (double) – Longitude in degrees (range: -180 to +180)
-        # relative_altitude_m (float) – Altitude relative to takeoff altitude in metres
-        # speed_m_s (float) – Speed to use after this mission item (in metres/second)
-        # is_fly_through (bool) – True will make the drone fly through without stopping, while false will make the drone stop on the waypoint
-        # gimbal_pitch_deg (float) – Gimbal pitch (in degrees)
-        # gimbal_yaw_deg (float) – Gimbal yaw (in degrees)
-        # camera_action (CameraAction) – Camera action to trigger at this mission item
-        # loiter_time_s (float) – Loiter time (in seconds)
-        # camera_photo_interval_s (double) – Camera photo interval to use after this mission item (in seconds)
-        # acceptance_radius_m (float) – Radius for completing a mission item (in metres)
-        # yaw_deg (float) – Absolute yaw angle (in degrees)
-        # camera_photo_distance_m (float) – Camera photo distance to use after this mission item (in meters)
 
 def VCS():
     app = QApplication(sys.argv)

@@ -2,9 +2,10 @@
 
 This Documentation will guide you to program a drone runnning PX4 firmaware using the Python mavsdk module, with the added option of 3d smulation using Gazebo11
 
-Before following this Steps install <a href="https://github.com/F-LAB-Systems/SITL_2021">PX4-Autopilot<a> > for <a href="https://www.youtube.com/watch?v=AAv2zVYgxIY&feature=youtu.be">Video tutorial</a> 
-  
+Before following this Steps install <a href="https://github.com/F-LAB-Systems/SITL_2021">PX4-Autopilot<a> > for <a href="https://www.youtube.com/watch?v=AAv2zVYgxIY&feature=youtu.be">Video tutorial</a>
+ 
 ![F-lab](https://user-images.githubusercontent.com/78522341/107612078-724ecf00-6c6b-11eb-9fca-7db484a7f586.png)
+![VUASRL-contrubute](https://user-images.githubusercontent.com/79184520/198298463-be646e06-726d-424b-bf5a-c7b2504da905.png)
 
  <a href="https://youtu.be/r5GEO2Zvs54">VIDEO TUTORIAL</a>
 
@@ -53,8 +54,8 @@ Start by cloning this repository in your project folder using pycharm terminal
 
 ```
 git clone https://github.com/F-LAB-Systems/PX4-Python-SITL-2021.git
+git clone https://github.com/lhseop0710/VUASRL_Drone_Simulator.git  #download for models and VQGCS
 ```
-
 ## STEP 3: Open PX4-Autopilot & Gazebo
 
 In new Terminal open PX4-Autopilot & Gazebo
@@ -63,8 +64,18 @@ cd ~
 
 cd PX4-Autopilot
 
+cd PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models
+#import our model files
+cd
+cd PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds
+#import our vuasrl world files
+
+export PX4_SITL_WORLD=vuasrl
+
 make px4_sitl gazebo //QuadCopter
 ```
+
+
 
 ## STEP 4: Open QGroundControl
 
